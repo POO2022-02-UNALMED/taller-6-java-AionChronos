@@ -1,28 +1,29 @@
 package vehiculos;
 
-public class Automovil extends Vehiculo{
-    private int puestos;
-    private static int cantidadAutomoviles;
+public class Camioneta extends Vehiculo{
+    private boolean volco;
+    private static int cantidadCamionetas;
 
-    public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int puestos) {
-        super(placa, 4, 100, nombre, precio, peso, "FWD", fabricante);
-        this.puestos = puestos;
-        cantidadAutomoviles++;
+    public Camioneta(String placa, int puertas, String nombre, int precio, int peso, Fabricante fabricante, boolean volco) {
+        super(placa, puertas, 90, nombre, precio, peso, "4X4", fabricante);
+        this.volco = volco;
+        cantidadCamionetas++;
+    }
+    public static void setCantidadCamionetas(int cantidadCamionetas) {
+        Camioneta.cantidadCamionetas = cantidadCamionetas;
     }
 
-    public int getPuestos() {
-        return puestos;
+
+    public boolean isVolco() {
+        return volco;
     }
 
-    public void setPuestos(int puestos) {
-        this.puestos = puestos;
+    public void setVolco(boolean volco) {
+        this.volco = volco;
     }
 
-    public static int getCantidadAutomoviles() {
-        return cantidadAutomoviles;
+    public static int getCantidadCamionetas() {
+        return cantidadCamionetas;
     }
 
-    public static void setCantidadAutomoviles(int cantidadAutomoviles) {
-        Automovil.cantidadAutomoviles = cantidadAutomoviles;
-    }
 }

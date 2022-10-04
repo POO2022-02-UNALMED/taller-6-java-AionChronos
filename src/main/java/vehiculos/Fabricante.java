@@ -1,28 +1,33 @@
 package vehiculos;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Automovil extends Vehiculo{
-    private int puestos;
-    private static int cantidadAutomoviles;
+public class Fabricante {
+    private String nombre;
+    private Pais pais;
+    private static HashMap<Fabricante, Integer> ventasPorFabrica = new HashMap<>();
 
-    public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int puestos) {
-        super(placa, 4, 100, nombre, precio, peso, "FWD", fabricante);
-        this.puestos = puestos;
-        cantidadAutomoviles++;
+    public Fabricante(String nombre, Pais pais){
+        this.nombre = nombre;
+        this.pais = pais;
+        ventasPorFabrica.put(this, 0);
     }
 
-    public int getPuestos() {
-        return puestos;
+    public void agregarVenta(){
+        ventasPorFabrica.put(this, ventasPorFabrica.get(this)+1);
+        pais.agregarVenta();
     }
 
-    public void setPuestos(int puestos) {
-        this.puestos = puestos;
-    }
+    public static Fabricante fabricaMayorVentas(){
+        Map.Entry<Fabricante, Integer> maxEntry = null;
 
-    public static int getCantidadAutomoviles() {
-        return cantidadAutomoviles;
-    }
+        for (Map.Entry<Fabricante, Integer> entry : ventasPorFabrica.entrySet())
+        {
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+            {
+                maxEntry = entry;
+            }
+        }
 
-    public static void setCantidadAutomoviles(int cantidadAutomoviles) {
-        Automovil.cantidadAutomoviles = cantidadAutomoviles;
+        return maxEntry.getKey();
     }
-}
