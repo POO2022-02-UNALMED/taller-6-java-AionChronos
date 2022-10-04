@@ -10,6 +10,7 @@ public class Vehiculo {
     protected String traccion;
     protected Fabricante fabricante;
     protected static int cantidadVehiculos;
+
     public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante) {
         this.placa = placa;
         this.puertas = puertas;
@@ -21,6 +22,7 @@ public class Vehiculo {
         this.fabricante = fabricante;
         fabricante.agregarVenta();
     }
+
     public String getPlaca() {
         return placa;
     }
@@ -41,11 +43,12 @@ public class Vehiculo {
         return velocidadMaxima;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
     public void setVelocidadMaxima(int velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setNombre(String nombre) {
