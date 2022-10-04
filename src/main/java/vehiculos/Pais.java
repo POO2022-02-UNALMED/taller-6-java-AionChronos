@@ -14,6 +14,7 @@ public class Pais {
     public void agregarVenta(){
         ventasPorPaises.put(this, ventasPorPaises.get(this)+1);
     }
+
     public static Pais paisMasVendedor(){
         Map.Entry<Pais, Integer> maxEntry = null;
 
@@ -24,6 +25,7 @@ public class Pais {
                 maxEntry = entry;
             }
         }
+
         return maxEntry.getKey();
     }
 }

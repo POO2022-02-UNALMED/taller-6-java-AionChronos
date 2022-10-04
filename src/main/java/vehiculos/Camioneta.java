@@ -9,10 +9,6 @@ public class Camioneta extends Vehiculo{
         this.volco = volco;
         cantidadCamionetas++;
     }
-    public static void setCantidadCamionetas(int cantidadCamionetas) {
-        Camioneta.cantidadCamionetas = cantidadCamionetas;
-    }
-
 
     public boolean isVolco() {
         return volco;
@@ -26,4 +22,7 @@ public class Camioneta extends Vehiculo{
         return cantidadCamionetas;
     }
 
+    public static void setCantidadCamionetas(int cantidadCamionetas) {
+        Camioneta.cantidadCamionetas = cantidadCamionetas;
+    }
 }
